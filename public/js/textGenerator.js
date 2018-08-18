@@ -8,7 +8,6 @@
 "use strict"
 
 let scene = new THREE.Scene();
-scene.background = new THREE.Color(0x4d4d48);
 let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000 );
 let txtLoader = new THREE.TextureLoader();
 let texture = null;
@@ -31,7 +30,6 @@ init();
 
 function init(){
   if(mesh == null){
-    //setFont("helvetiker-regular");
     createLight();
     createRenderer();
     constrols = new THREE.OrbitControls(camera, renderer.domElement);
@@ -72,8 +70,7 @@ function createLight(){
 function loadTexture(){
   if(modelTexturePath){
       txtLoader.load(modelTexturePath, _texture => {
-        setCamera();
-        
+       
         material = new THREE.MeshBasicMaterial(
         {
           map: _texture
@@ -84,6 +81,7 @@ function loadTexture(){
                 child.material = material;
             }
         });
+
         setPBar(100.00);
         texture = _texture;
         
@@ -151,10 +149,8 @@ function handleFileSelect(evt){
   let reader = new FileReader();
 
   reader.onload = file => {
-    //modelFilePath = file.target.result;
     modelTexturePath = file.target.result;
     loadTexture();
-    //init();
   };
 
   reader.onprogress =  xhr => {
@@ -169,6 +165,7 @@ function handleFileSelect(evt){
         alert('An error occurred reading this file.');
         console.log(xhr.target.error);
       }
+
   reader.readAsDataURL(evt.target.files[0]);
 }
 
@@ -201,7 +198,6 @@ function setCamera(){
   let y = new THREE.Box3().setFromObject(mesh).getSize().y;
   let z = new THREE.Box3().setFromObject(mesh).getSize().z;
   camera.position.set(x+30, y-150, z+100);
-  //camera.lookAt(mesh);
 
 }
 

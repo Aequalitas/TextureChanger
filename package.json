@@ -1,0 +1,12 @@
+{
+  "name": "TextureChanger",
+  "version": "0.8.0",
+  "description": "TextureChanger",
+  "main": "index.js",
+  "author": "Franz Weidmann https://github.com/Aequalitas",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "express": "^4.16.3",
+    "ejs": "^2.2.4"
+  }
+}

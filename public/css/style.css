@@ -1,0 +1,51 @@
+/*
+* @author Franz Weidmann https://github.com/Aequalitas
+*/
+
+input[type=number]{
+  width: 55px;
+}
+
+body{
+  background-color: #f2f2f2;
+}
+footer{
+  margin:0;
+}
+
+.progress-bar{
+  background-color: #0055a5;
+}
+
+#model{
+    min-height:calc(93vh - 85px);
+}
+
+#GYlogoArea{
+  background-color: #0055a5;
+}
+
+#GYlogo{
+  max-height:50px;
+}
+
+#firstEnd{
+  background-color: #0055a5;
+  width: 100%;
+  height: 5%;
+}
+
+#secondEnd{
+  background-color: #fcdf17;
+  width: 100%;
+  height: 2%;
+}
+
+
+#advanced-settings{
+  display: none;
+}
+
+#controls{
+  margin-top:60px;
+}

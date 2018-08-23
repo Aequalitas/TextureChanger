@@ -14,14 +14,15 @@ let texture = null;
 let mesh = null;
 let renderer = null;
 let ambientLight, directionalLight1, directionalLight2, directionalLight3 = null;
-let material = new THREE.MeshNormalMaterial({
+let material = new THREE.MeshBasicMaterial({
   overdraw: 1,
   wireframe: false,
-  vertexColors: THREE.FaceColors
+  vertexColors: THREE.FaceColors,
+  flatShading: true
 });
 let constrols = null;
 let modelTexturePath = null;
-let modelFilePath = "/3dmodels/chair/chair.obj";
+let modelFilePath = "/3dmodels/tie/tie.obj";
 let canWriteTextTimer = null;
 let globalProgress = 0.00;
 
@@ -115,7 +116,6 @@ function createMainModel(){
       mesh = object;
 
       if(!modelTexturePath){
-        object.scale.set(0.2,0.2,0.2);
         scene.add(object);
         setPBar(100.00);
         setCamera();
@@ -197,7 +197,7 @@ function setCamera(){
   let x = mesh.position.x;
   let y = new THREE.Box3().setFromObject(mesh).getSize().y;
   let z = new THREE.Box3().setFromObject(mesh).getSize().z;
-  camera.position.set(x+30, y-150, z+100);
+  camera.position.set(x, y-5, z);
 
 }
 
